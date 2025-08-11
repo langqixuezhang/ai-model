@@ -5,11 +5,16 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "format": "prettier --write \"src/**/*.{js,vue,json,css,scss,md}\" \"*.{js,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{js,vue,json,css,scss,md}\" \"*.{js,json,md}\""
   },
   "dependencies": {
+    "axios": "^1.9.0",
     "core-js": "^3.8.3",
-    "vue": "^3.2.13"
+    "pinia": "^2.3.1",
+    "vue": "^3.2.13",
+    "vue-router": "^4.5.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
@@ -18,7 +23,10 @@
     "@vue/cli-plugin-eslint": "~5.0.0",
     "@vue/cli-service": "~5.0.0",
     "eslint": "^7.32.0",
-    "eslint-plugin-vue": "^8.0.3"
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^8.0.3",
+    "prettier": "^2.8.8"
   },
   "eslintConfig": {
     "root": true,
@@ -27,12 +35,24 @@
     },
     "extends": [
       "plugin:vue/vue3-essential",
-      "eslint:recommended"
+      "eslint:recommended",
+      "prettier"
     ],
     "parserOptions": {
       "parser": "@babel/eslint-parser"
     },
-    "rules": {}
+    "rules": {
+      "prettier/prettier": [
+        "error"
+      ],
+      "semi": [
+        "error",
+        "never"
+      ]
+    },
+    "plugins": [
+      "prettier"
+    ]
   },
   "browserslist": [
     "> 1%",
