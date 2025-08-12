@@ -2,6 +2,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const Login = () => import('../views/Login.vue')
 const Dashboard = () => import('../views/Dashboard.vue')
+const AiChat = () => import('../views/AiChat.vue')
+const AiPpt = () => import('../views/AiPpt.vue')
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
@@ -17,6 +19,18 @@ const router = createRouter({
       name: 'Dashboard',
       component: Dashboard,
       meta: { requiresAuth: true, title: '首页' },
+    },
+    {
+      path: '/chat',
+      name: 'AiChat',
+      component: AiChat,
+      meta: { requiresAuth: true, title: 'AI聊天' },
+    },
+    {
+      path: '/ppt',
+      name: 'AiPpt',
+      component: AiPpt,
+      meta: { requiresAuth: true, title: 'AI PPT生成' },
     },
   ],
 })

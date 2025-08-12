@@ -1,9 +1,26 @@
 <template>
-  <router-view />
+  <div id="app">
+    <router-view v-slot="{ Component, route }">
+      <component
+        :is="route.path === '/login' ? Component : BasicLayout"
+        v-if="route.path === '/login'"
+      />
+      <BasicLayout v-else>
+        <component :is="Component" />
+      </BasicLayout>
+    </router-view>
+  </div>
 </template>
 
 <script>
-  export default { name: 'App' }
+  import BasicLayout from './layouts/BasicLayout.vue'
+
+  export default {
+    name: 'App',
+    components: {
+      BasicLayout,
+    },
+  }
 </script>
 
 <style>
@@ -13,6 +30,7 @@
     height: 100%;
     margin: 0;
   }
+
   body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
       'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji',

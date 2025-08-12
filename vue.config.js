@@ -11,7 +11,6 @@ module.exports = defineConfig({
       },
     },
     onBeforeSetupMiddleware(devServer) {
-      console.log('devServer', devServer)
       if (!devServer) return
       const app = devServer.app
 
@@ -26,14 +25,11 @@ module.exports = defineConfig({
             const data = JSON.parse(body || '{}')
             const { username, password } = data
             if (username === 'admin' && password === '123456') {
-              console.log('aside')
               res.json({ token: 'mock-token-admin' })
             } else {
-              console.log('aside')
               res.status(401).json({ message: '用户名或密码错误' })
             }
           } catch (e) {
-            console.log('e', e)
             res.status(400).json({ message: '请求体错误' })
           }
         })
