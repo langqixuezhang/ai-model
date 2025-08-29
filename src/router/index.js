@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import BasicLayout from '../layouts/BasicLayout.vue'
 
 const Login = () => import('../views/Login.vue')
 const Dashboard = () => import('../views/Dashboard.vue')
@@ -16,21 +17,28 @@ const router = createRouter({
     },
     {
       path: '/',
-      name: 'Dashboard',
-      component: Dashboard,
-      meta: { requiresAuth: true, title: '首页' },
-    },
-    {
-      path: '/chat',
-      name: 'AiChat',
-      component: AiChat,
-      meta: { requiresAuth: true, title: 'AI聊天' },
-    },
-    {
-      path: '/ppt',
-      name: 'AiPpt',
-      component: AiPpt,
-      meta: { requiresAuth: true, title: 'AI PPT生成' },
+      component: BasicLayout,
+      meta: { requiresAuth: true },
+      children: [
+        {
+          path: '',
+          name: 'Dashboard',
+          component: Dashboard,
+          meta: { title: '首页' },
+        },
+        {
+          path: 'chat',
+          name: 'AiChat',
+          component: AiChat,
+          meta: { title: 'AI聊天' },
+        },
+        {
+          path: 'ppt',
+          name: 'AiPpt',
+          component: AiPpt,
+          meta: { title: 'AI PPT生成' },
+        },
+      ],
     },
   ],
 })

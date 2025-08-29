@@ -8,7 +8,7 @@
     <div class="features-grid">
       <router-link to="/chat" class="feature-card chat-card">
         <div class="feature-icon">💬</div>
-        <h3>AI聊天</h3>
+        <h3>聊天</h3>
         <p>与AI助手进行智能对话，获取专业建议和解答</p>
         <div class="feature-arrow">→</div>
       </router-link>

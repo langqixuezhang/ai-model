@@ -9,12 +9,12 @@
       <nav class="nav">
         <router-link to="/chat" class="nav-item" :class="{ active: $route.path === '/chat' }">
           <span class="nav-icon">💬</span>
-          <span class="nav-text" v-show="!isCollapsed">AI聊天</span>
+          <span class="nav-text" v-show="!isCollapsed">聊天</span>
         </router-link>
 
         <router-link to="/ppt" class="nav-item" :class="{ active: $route.path === '/ppt' }">
           <span class="nav-icon">📊</span>
-          <span class="nav-text" v-show="!isCollapsed">AI PPT生成</span>
+          <span class="nav-text" v-show="!isCollapsed">生成</span>
         </router-link>
       </nav>
 
