@@ -66,7 +66,7 @@
         setTimeout(() => {
           const aiMessage = {
             type: 'ai',
-            content: `我收到了你的消息："${userMessage.content}"。这是一个模拟回复，实际项目中这里会调用真实的AI接口。`,
+            content: `我收到了你的消息："${userMessage.content}"`,
             timestamp: new Date(),
           }
           messages.value.push(aiMessage)
