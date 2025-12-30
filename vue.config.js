@@ -2,6 +2,8 @@ const { defineConfig } = require('@vue/cli-service')
 
 module.exports = defineConfig({
   transpileDependencies: true,
+
+  // 开发服务器配置
   devServer: {
     port: 8080,
     setupMiddlewares: (middlewares, devServer) => {
@@ -56,21 +58,12 @@ module.exports = defineConfig({
     },
   },
 
-  // 生产环境配置
+  // 生产环境配置 - 简化以避免构建问题
   configureWebpack: {
-    devtool: process.env.NODE_ENV === 'production' ? false : 'eval-source-map',
+    // 在生产环境中禁用source map以减少构建时间和文件大小
+    devtool: false,
   },
 
-  // PWA支持
-  pwa: {
-    name: 'ddhAI',
-    themeColor: '#667eea',
-    msTileColor: '#667eea',
-    appleMobileWebAppCapable: 'yes',
-    appleMobileWebAppStatusBarStyle: 'black',
-    workboxOptions: {
-      skipWaiting: true,
-      clientsClaim: true,
-    },
-  },
+  // 移除PWA配置以避免构建问题
+  // pwa: {...}
 })

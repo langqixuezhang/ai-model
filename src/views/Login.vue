@@ -84,7 +84,6 @@
   import { useRouter, useRoute } from 'vue-router'
   import { useUserStore } from '../stores/user'
   import { loginApi, fetchProfileApi } from '../api/auth'
-  import { ElMessage } from 'element-plus'
 
   export default {
     name: 'LoginPage',
@@ -138,7 +137,6 @@
           store.setToken(data.token)
           const profile = await fetchProfileApi()
           store.setProfile(profile)
-          ElMessage.success('登录成功！')
           const redirect = route.query && route.query.redirect ? String(route.query.redirect) : '/'
           router.replace(redirect)
         } catch (e) {
@@ -169,7 +167,6 @@
           // 这里需要添加注册API调用
           // const data = await registerApi({ username: username.value, password: password.value, nickname: nickname.value, email: email.value })
           // 暂时显示注册成功消息
-          ElMessage.success('注册功能即将上线，敬请期待！')
         } catch (e) {
           error.value = e?.response?.data?.message || e?.message || '注册失败'
         } finally {
