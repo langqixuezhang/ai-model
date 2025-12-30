@@ -10,6 +10,7 @@
     "setup": "./setup-env.sh",
     "test-config": "node test-config.js",
     "test-qwen": "node test-qwen.js",
+    "test-build": "npm run build && echo '✅ 构建成功！可以部署到Vercel'",
     "deploy": "./deploy-frontend.sh"
   },
   "dependencies": {
