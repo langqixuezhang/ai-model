@@ -11,6 +11,7 @@ module.exports = defineConfig({
       },
     },
     onBeforeSetupMiddleware(devServer) {
+      console.log('devServer', devServer)
       if (!devServer) return
       const app = devServer.app
 

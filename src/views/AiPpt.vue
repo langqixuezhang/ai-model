@@ -2,8 +2,8 @@
   <div class="ai-ppt">
     <div class="ppt-container">
       <div class="ppt-header">
-        <h2>AI PPT生成器</h2>
-        <p>输入主题，AI将为你生成专业的PPT内容</p>
+        <h2>PPT生成器</h2>
+        <p>输入主题，穆老师将为你生成专业的PPT内容</p>
       </div>
 
       <div class="ppt-form">
@@ -75,7 +75,6 @@
 
 <script>
   import { ref } from 'vue'
-
   export default {
     name: 'AiPptPage',
     setup() {
@@ -84,8 +83,14 @@
       const pptStyle = ref('professional')
       const generating = ref(false)
       const generatedPpt = ref(null)
+      const pptOpen = ref(false)
 
       const generatePpt = async () => {
+        if (!pptOpen.value) {
+          alert('PPT生成服务正在测试阶段，暂未开放，敬请期待！')
+          return
+        }
+
         if (!pptTopic.value.trim() || generating.value) return
 
         generating.value = true

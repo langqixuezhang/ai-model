@@ -14,7 +14,7 @@
 
         <router-link to="/ppt" class="nav-item" :class="{ active: $route.path === '/ppt' }">
           <span class="nav-icon">📊</span>
-          <span class="nav-text" v-show="!isCollapsed">生成</span>
+          <span class="nav-text" v-show="!isCollapsed">PPT</span>
         </router-link>
       </nav>
 
@@ -59,7 +59,7 @@
       const currentPageTitle = computed(() => {
         const routeMap = {
           '/chat': 'AI聊天',
-          '/ppt': 'AI PPT生成',
+          '/ppt': 'PPT生成',
         }
         return routeMap[route.path] || '首页'
       })
