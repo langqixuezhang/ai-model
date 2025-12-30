@@ -75,6 +75,7 @@
 
 <script>
   import { ref } from 'vue'
+  import { useMessage } from '@/composables/useMessage'
   export default {
     name: 'AiPptPage',
     setup() {
@@ -84,10 +85,10 @@
       const generating = ref(false)
       const generatedPpt = ref(null)
       const pptOpen = ref(false)
-
+      const message = useMessage()
       const generatePpt = async () => {
         if (!pptOpen.value) {
-          alert('PPT生成服务正在测试阶段，暂未开放，敬请期待！')
+          message.warning('PPT生成服务正在测试阶段，暂未开放，敬请期待！')
           return
         }
 
