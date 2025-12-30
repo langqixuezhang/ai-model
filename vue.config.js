@@ -4,18 +4,11 @@ module.exports = defineConfig({
   transpileDependencies: true,
   devServer: {
     port: 8080,
-    proxy: {
-      '/api': {
-        target: 'http://localhost:8080',
-        changeOrigin: true,
-      },
-    },
-    onBeforeSetupMiddleware(devServer) {
-      if (!devServer) return
-      const app = devServer.app
+    setupMiddlewares: (middlewares, devServer) => {
+      if (!devServer) return middlewares
 
-      // 简易本地 Mock 登录
-      app.post('/api/auth/login', (req, res) => {
+      // 本地开发Mock API
+      devServer.app.post('/api/auth/login', (req, res) => {
         let body = ''
         req.on('data', (chunk) => {
           body += chunk
@@ -24,20 +17,60 @@ module.exports = defineConfig({
           try {
             const data = JSON.parse(body || '{}')
             const { username, password } = data
-            if (username === 'admin' && password === '123456') {
-              res.json({ token: 'mock-token-admin' })
+            // 演示账号
+            if (username === 'demo' && password === 'demo123') {
+              res.json({
+                token: 'demo-token-for-preview',
+                user: {
+                  id: 1,
+                  username: 'demo',
+                  nickname: '演示账号',
+                  email: 'duhuan01@qq.com',
+                },
+              })
             } else {
-              res.status(401).json({ message: '用户名或密码错误' })
+              res.status(401).json({ message: '账号或密码错误' })
             }
           } catch (e) {
-            res.status(400).json({ message: '请求体错误' })
+            res.status(400).json({ message: '请求错误' })
           }
         })
       })
 
-      app.get('/api/user/profile', (_req, res) => {
-        res.json({ id: 1, username: 'admin', nickname: '管理员' })
+      devServer.app.get('/api/user/profile', (req, res) => {
+        const authHeader = req.headers.authorization
+        if (authHeader === 'Bearer demo-token-for-preview') {
+          res.json({
+            id: 1,
+            username: 'demo',
+            nickname: '演示账号',
+            email: 'duhuan01@qq.com',
+            created_at: new Date().toISOString(),
+          })
+        } else {
+          res.status(401).json({ message: '账号或密码错误' })
+        }
       })
+
+      return middlewares
+    },
+  },
+
+  // 生产环境配置
+  configureWebpack: {
+    devtool: process.env.NODE_ENV === 'production' ? false : 'eval-source-map',
+  },
+
+  // PWA支持
+  pwa: {
+    name: 'ddhAI',
+    themeColor: '#667eea',
+    msTileColor: '#667eea',
+    appleMobileWebAppCapable: 'yes',
+    appleMobileWebAppStatusBarStyle: 'black',
+    workboxOptions: {
+      skipWaiting: true,
+      clientsClaim: true,
     },
   },
 })

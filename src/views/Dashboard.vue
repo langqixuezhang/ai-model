@@ -1,7 +1,7 @@
 <template>
   <div class="dashboard">
     <div class="welcome-section">
-      <h1>欢迎使用AI助手</h1>
+      <h1>欢迎使用</h1>
       <p>选择下面的功能开始使用</p>
     </div>
 
@@ -9,25 +9,25 @@
       <router-link to="/chat" class="feature-card chat-card">
         <div class="feature-icon">💬</div>
         <h3>聊天</h3>
-        <p>与AI助手进行智能对话，获取专业建议和解答</p>
+        <p>排忧解惑</p>
         <div class="feature-arrow">→</div>
       </router-link>
 
       <router-link to="/ppt" class="feature-card ppt-card">
         <div class="feature-icon">📊</div>
-        <h3>AI PPT生成</h3>
-        <p>输入主题，AI自动生成专业的PPT内容和结构</p>
+        <h3>PPT生成</h3>
+        <p>输入主题，自动生成专业的PPT内容和结构</p>
         <div class="feature-arrow">→</div>
       </router-link>
     </div>
 
     <div class="quick-stats">
       <div class="stat-card">
-        <div class="stat-number">2</div>
+        <div class="stat-number">1</div>
         <div class="stat-label">可用功能</div>
       </div>
       <div class="stat-card">
-        <div class="stat-number">24/7</div>
+        <div class="stat-number">1/7</div>
         <div class="stat-label">在线服务</div>
       </div>
       <div class="stat-card">
