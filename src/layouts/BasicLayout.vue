@@ -2,8 +2,8 @@
   <div class="layout" :class="{ collapsed: isCollapsed }">
     <aside class="sidebar">
       <div class="sidebar-header">
-        <div class="logo" v-show="!isCollapsed">AI助手</div>
-        <div class="logo" v-show="isCollapsed">AI</div>
+        <div class="logo" v-show="!isCollapsed">logo</div>
+        <div class="logo" v-show="isCollapsed">logo</div>
       </div>
 
       <nav class="nav">

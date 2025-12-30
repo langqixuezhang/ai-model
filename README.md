@@ -1,37 +1,140 @@
-# my-frist-model
+# 🚀 智创云 AI
 
-## Project setup
+基于 Vue.js + Element Plus 的 AI 内容生成演示平台
 
-```
+## ✨ 功能特性
+
+- 🤖 **AI 对话** - 智能聊天助手演示
+- 📊 **PPT 生成** - AI 驱动的演示文稿制作演示
+- 👤 **用户演示** - 演示账号登录系统
+- 🎨 **现代化 UI** - 基于 Element Plus 的美观界面
+- 📱 **响应式设计** - 支持移动端访问
+- ⚡ **快速部署** - 一键部署到 Vercel
+
+## 🛠️ 技术栈
+
+### 前端
+
+- **Vue 3** - 渐进式 JavaScript 框架
+- **Element Plus** - Vue 3 UI 组件库
+- **Vue Router 4** - 官方路由管理器
+- **Pinia** - 新一代状态管理库
+
+### 部署
+
+- **Vercel** - 前端应用部署平台
+- **Serverless Functions** - 无服务器 API
+
+## 🚀 快速开始
+
+### 环境要求
+
+- Node.js >= 14.0.0
+- npm >= 6.0.0
+
+### 本地开发
+
+```bash
+# 安装依赖
 npm install
-```
 
-### Compiles and hot-reloads for development
-
-```
+# 启动开发服务器
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 访问应用
+
+- **本地**: http://localhost:8080
+- **演示账号**: `demo` / `demo123`
+
+## 🌐 部署到 Vercel
+
+### 方式 1：命令行部署（推荐）
+
+```bash
+# 安装 Vercel CLI
+npm install -g vercel
+
+# 登录 Vercel
+vercel login
+
+# 部署到 Vercel (生产环境)
+npm run deploy
+```
+
+### 方式 2：GitHub 自动部署
+
+1. 将代码推送到 GitHub 仓库
+2. 在 [Vercel](https://vercel.com) 中点击 "New Project"
+3. 连接你的 GitHub 仓库
+4. Vercel 会自动检测并部署
+5. 获得可分享的 URL 链接
+
+### 方式 3：直接拖拽部署
+
+1. 运行 `npm run build` 构建项目
+2. 访问 [Vercel Deploy](https://vercel.com/new)
+3. 将 `dist` 文件夹拖拽到页面中
+4. 完成部署
+
+## 👤 演示账号
+
+- **用户名**: `demo`
+- **密码**: `demo123`
+- **用途**: 专门为演示和分享准备的账号
+
+## 📁 项目结构
 
 ```
-npm run build
+智创云AI/
+├── api/                    # Vercel Serverless Functions
+│   ├── auth/login.js      # 登录API
+│   └── user/profile.js    # 用户信息API
+├── src/                   # 前端源码
+│   ├── views/             # 页面组件
+│   ├── components/        # 公共组件
+│   ├── composables/       # 组合函数
+│   ├── stores/            # 状态管理
+│   └── router/            # 路由配置
+├── public/                # 静态资源
+├── dist/                  # 构建输出
+├── vercel.json            # Vercel配置
+└── package.json           # 项目配置
 ```
 
-### Format code
+## 🎯 使用说明
 
+1. **访问部署后的链接**
+2. **使用演示账号登录**: `demo` / `demo123`
+3. **体验 AI 功能**: 聊天对话、PPT 生成等
+4. **分享链接**给其他人体验
+
+## 🔧 自定义配置
+
+### 修改演示账号
+
+编辑 `api/auth/login.js`:
+
+```javascript
+if (username === 'your-username' && password === 'your-password') {
+  // 修改账号信息
+}
 ```
-npm run format
-```
 
-### Lints and fixes files
+### 添加新功能
 
-```
-npm run lint
-```
+- 在 `src/views/` 中添加新页面
+- 在 `src/router/index.js` 中配置路由
+- 如需 API，在 `api/` 目录添加 Serverless Function
 
-### Customize configuration
+## 📞 技术支持
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- 项目地址: [GitHub]
+- 在线演示: [Vercel 部署链接]
+- 问题反馈: 提交 Issue
 
-# ai-model
+---
+
+**智创云 AI** - 让 AI 创作更简单 ✨
+
+Made with ❤️ by Vue.js + Vercel

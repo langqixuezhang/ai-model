@@ -3,7 +3,7 @@
     <div class="ppt-container">
       <div class="ppt-header">
         <h2>PPT生成器</h2>
-        <p>输入主题，穆老师将为你生成专业的PPT内容</p>
+        <p>输入主题，将为你生成专业的PPT内容</p>
       </div>
 
       <div class="ppt-form">
