@@ -30,10 +30,6 @@
         <div class="stat-number">1/7</div>
         <div class="stat-label">在线服务</div>
       </div>
-      <div class="stat-card">
-        <div class="stat-number">AI</div>
-        <div class="stat-label">智能驱动</div>
-      </div>
     </div>
   </div>
 </template>

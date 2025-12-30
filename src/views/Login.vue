@@ -84,6 +84,7 @@
   import { useRouter, useRoute } from 'vue-router'
   import { useUserStore } from '../stores/user'
   import { loginApi, fetchProfileApi } from '../api/auth'
+  import { useMessage } from '@/composables/useMessage'
 
   export default {
     name: 'LoginPage',
@@ -101,6 +102,7 @@
       const email = ref('')
       const loading = ref(false)
       const error = ref('')
+      const message = useMessage()
 
       // 切换到登录
       const switchToLogin = () => {
@@ -137,6 +139,7 @@
           store.setToken(data.token)
           const profile = await fetchProfileApi()
           store.setProfile(profile)
+          message.success('登录成功！')
           const redirect = route.query && route.query.redirect ? String(route.query.redirect) : '/'
           router.replace(redirect)
         } catch (e) {
@@ -167,6 +170,7 @@
           // 这里需要添加注册API调用
           // const data = await registerApi({ username: username.value, password: password.value, nickname: nickname.value, email: email.value })
           // 暂时显示注册成功消息
+          message.success('注册功能即将上线，敬请期待！')
         } catch (e) {
           error.value = e?.response?.data?.message || e?.message || '注册失败'
         } finally {

@@ -58,7 +58,7 @@
 
       const currentPageTitle = computed(() => {
         const routeMap = {
-          '/chat': 'AI聊天',
+          '/chat': '聊天',
           '/ppt': 'PPT生成',
         }
         return routeMap[route.path] || '首页'
@@ -232,9 +232,10 @@
   }
 
   .content {
-    flex: 1;
     padding: 24px;
     overflow-y: auto;
+    height: calc(100vh - 65px);
+    box-sizing: border-box;
   }
 
   /* 响应式设计 */

@@ -6,14 +6,16 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "format": "prettier --write \"src/**/*.{js,vue,json,css,scss,md}\" \"*.{js,json,md}\"",
-    "format:check": "prettier --check \"src/**/*.{js,vue,json,css,scss,md}\" \"*.{js,json,md}\"",
     "preview": "npm run build && npx serve dist",
-    "deploy": "vercel --prod"
+    "setup": "./setup-env.sh",
+    "test-config": "node test-config.js",
+    "test-qwen": "node test-qwen.js",
+    "deploy": "./deploy-frontend.sh"
   },
   "dependencies": {
     "axios": "^1.9.0",
     "core-js": "^3.8.3",
+    "dotenv": "^16.3.1",
     "element-plus": "^2.13.0",
     "pinia": "^2.3.1",
     "vue": "^3.2.13",

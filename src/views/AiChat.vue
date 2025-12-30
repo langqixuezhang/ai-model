@@ -33,6 +33,8 @@
 
 <script>
   import { ref, nextTick, onMounted } from 'vue'
+  import { chatWithAI } from '@/api/ai'
+  import { useMessage } from '@/composables/useMessage'
 
   export default {
     name: 'AiChatPage',
@@ -40,7 +42,7 @@
       const messages = ref([
         {
           type: 'ai',
-          content: '你好！我是AI助手，有什么可以帮助你的吗？',
+          content: '你好！我是杜欢，有什么可以帮助你的吗？',
           timestamp: new Date(),
         },
       ])
@@ -48,6 +50,8 @@
       const inputMessage = ref('')
       const loading = ref(false)
       const messagesContainer = ref(null)
+
+      const message = useMessage()
 
       const sendMessage = async () => {
         if (!inputMessage.value.trim() || loading.value) return
@@ -59,20 +63,43 @@
         }
 
         messages.value.push(userMessage)
+        const currentMessage = inputMessage.value.trim()
         inputMessage.value = ''
         loading.value = true
 
-        // 模拟AI回复
-        setTimeout(() => {
+        try {
+          // 调用真实的AI API
+          const response = await chatWithAI(currentMessage, messages.value.slice(0, -1)) // 排除刚添加的用户消息
+
           const aiMessage = {
             type: 'ai',
-            content: `我收到了你的消息："${userMessage.content}"`,
+            content: response.message,
+            timestamp: new Date(),
+            metadata: {
+              model: response.model,
+              provider: response.provider,
+              usage: response.usage,
+            },
+          }
+
+          messages.value.push(aiMessage)
+        } catch (error) {
+          console.error('调用失败:', error)
+
+          // 显示错误消息
+          message.error('聊天服务暂时不可用，请稍后重试')
+
+          // 添加错误提示到聊天
+          const errorMessage = {
+            type: 'ai',
+            content: '抱歉，聊天服务暂时不可用。请稍后重试。',
             timestamp: new Date(),
           }
-          messages.value.push(aiMessage)
+          messages.value.push(errorMessage)
+        } finally {
           loading.value = false
           scrollToBottom()
-        }, 1000)
+        }
       }
 
       const scrollToBottom = () => {
@@ -114,13 +141,13 @@
   }
 
   .chat-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
     background: white;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
     overflow: hidden;
+    height: 100%;
   }
 
   .chat-messages {

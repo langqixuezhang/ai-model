@@ -30,7 +30,7 @@ const router = createRouter({
           path: 'chat',
           name: 'AiChat',
           component: AiChat,
-          meta: { title: 'AI聊天' },
+          meta: { title: '聊天' },
         },
         {
           path: 'ppt',
