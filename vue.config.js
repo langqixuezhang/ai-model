@@ -7,6 +7,7 @@ module.exports = defineConfig({
   devServer: {
     port: 8080,
     setupMiddlewares: (middlewares, devServer) => {
+      console.log('setupMiddlewares', middlewares, devServer)
       if (!devServer) return middlewares
 
       // 本地开发Mock API

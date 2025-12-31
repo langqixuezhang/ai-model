@@ -43,8 +43,13 @@ if [ $? -eq 0 ]; then
     echo "   5. 值填写你的通义千问API密钥 (sk-xxx...)"
     echo "   6. 保存后重新部署"
     echo ""
+    echo "🔍 如果仍然遇到405错误："
+    echo "   1. 检查Vercel部署日志中的API函数错误"
+    echo "   2. 确认环境变量已正确设置"
+    echo "   3. 尝试重新部署项目"
+    echo ""
     echo "📖 详细配置请参考: ENV_SETUP.md"
-else
+    else
     echo "❌ 部署失败，请检查错误信息"
     exit 1
 fi

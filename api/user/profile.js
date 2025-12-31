@@ -1,4 +1,4 @@
-export default function handler(req, res) {
+module.exports = (req, res) => {
   // 只允许GET请求
   if (req.method !== 'GET') {
     return res.status(405).json({ message: 'Method not allowed' })
