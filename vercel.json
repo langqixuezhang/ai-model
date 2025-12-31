@@ -9,5 +9,8 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ]
+  ],
+  "env": {
+    "VUE_APP_QWEN_API_KEY": "sk-c2ba0cbecf96413c8fb1f14d173c1c84"
+  }
 }
