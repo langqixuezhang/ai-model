@@ -9,8 +9,5 @@
       "src": "/(.*)",
       "dest": "/index.html"
     }
-  ],
-  "env": {
-    "VUE_APP_QWEN_API_KEY": "@vue_app_qwen_api_key"
-  }
+  ]
 }
