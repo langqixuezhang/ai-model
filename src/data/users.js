@@ -61,7 +61,7 @@ const staticUsers = [
     lastLogin: null,
   },
   {
-    id: 3,
+    id: 6,
     username: 'guosiyu',
     password: '123456',
     nickname: '郭思雨',
@@ -111,6 +111,9 @@ function getUserById(id) {
   return staticUsers.find((user) => user.id === id && user.status === 'active')
 }
 
+function findUserByUsername(username) {
+  return staticUsers.find((user) => user.username === username && user.status === 'active')
+}
 function hasPermission(user, permission) {
   if (!user || !user.permissions) return false
 
@@ -138,4 +141,5 @@ module.exports = {
   getUserById,
   hasPermission,
   getUserPermissions,
+  findUserByUsername,
 }

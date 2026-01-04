@@ -140,6 +140,7 @@
           const profile = await fetchProfileApi()
           store.setProfile(profile)
           message.success('登录成功！')
+          localStorage.setItem('current_user', JSON.stringify(data))
           const redirect = route.query && route.query.redirect ? String(route.query.redirect) : '/'
           router.replace(redirect)
         } catch (e) {
