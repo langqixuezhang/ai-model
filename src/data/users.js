@@ -60,6 +60,18 @@ const staticUsers = [
     createTime: '2024-01-01',
     lastLogin: null,
   },
+  {
+    id: 3,
+    username: 'guosiyu',
+    password: '123456',
+    nickname: '郭思雨',
+    email: 'guosiyu@qq.com',
+    role: 'user',
+    permissions: ['dashboard:read', 'chat:read', 'chat:write'],
+    status: 'active',
+    createTime: '2024-01-01',
+    lastLogin: null,
+  },
 ]
 
 // 权限定义
