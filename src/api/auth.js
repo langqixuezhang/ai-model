@@ -40,6 +40,7 @@ export function loginApi(payload) {
           exp: Date.now() + 24 * 60 * 60 * 1000, // 24小时过期
         }),
       )
+      localStorage.setItem('current_user', JSON.stringify({ token: token, user: user }))
 
       return {
         token: token,
