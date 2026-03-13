@@ -26,10 +26,10 @@ const staticUsers = [
   },
   {
     id: 3,
-    username: 'zhengshaozhuo',
+    username: 'fanmanman',
     password: '123456',
-    nickname: '郑少卓',
-    email: 'zhengshaozhuo@qq.com',
+    nickname: '范曼曼',
+    email: 'fanmanman@qq.com',
     role: 'user',
     permissions: ['dashboard:read', 'chat:read', 'chat:write'],
     status: 'active',
@@ -59,19 +59,7 @@ const staticUsers = [
     status: 'active',
     createTime: '2024-01-01',
     lastLogin: null,
-  },
-  {
-    id: 6,
-    username: 'guosiyu',
-    password: '123456',
-    nickname: '郭思雨',
-    email: 'guosiyu@qq.com',
-    role: 'user',
-    permissions: ['dashboard:read', 'chat:read', 'chat:write'],
-    status: 'active',
-    createTime: '2024-01-01',
-    lastLogin: null,
-  },
+  }
 ]
 
 // 权限定义

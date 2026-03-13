@@ -68,8 +68,7 @@
         loading.value = true
 
         try {
-          // 调用真实的AI API
-          const response = await chatWithAI(currentMessage, messages.value.slice(0, -1)) // 排除刚添加的用户消息
+          const response = await chatWithAI(currentMessage, messages.value.slice(0, -1)) 
 
           const aiMessage = {
             type: 'ai',
