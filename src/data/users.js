@@ -59,7 +59,7 @@ const staticUsers = [
     status: 'active',
     createTime: '2024-01-01',
     lastLogin: null,
-  }
+  },
 ]
 
 // 权限定义

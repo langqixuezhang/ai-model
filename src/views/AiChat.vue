@@ -68,7 +68,7 @@
         loading.value = true
 
         try {
-          const response = await chatWithAI(currentMessage, messages.value.slice(0, -1)) 
+          const response = await chatWithAI(currentMessage, messages.value.slice(0, -1))
 
           const aiMessage = {
             type: 'ai',
